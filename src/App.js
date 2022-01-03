@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import { AppContext } from './AppContext';
 import { routes } from './Routes';
 import Protected from './Components/Protected';
-import Header from './Components/Header';
+import Header from './Components/Header/Header';
 
 
 function App() {

@@ -25,7 +25,7 @@ const Header = () => {
             <Drawer
             title="Basic Drawer"
             placement="right"
-            closable={false}
+            closable={true}
             onClose={()=>setOpen(false)}
             visible={open}
             key="right"
