@@ -1,18 +1,15 @@
 import React,{useEffect} from 'react'
-import { useNavigate, Route } from 'react-router-dom';
+import { useHistory,Route } from 'react-router-dom';
 
-const Protected = (props) => {
-    const navigate = useNavigate();
+const Protected = ({children,...props}) => {
+    const history = useHistory();
     useEffect(()=>{
         if(!JSON.parse(localStorage.getItem("User"))){
-            navigate('/login');
+            history.push('/login');
+            alert(1234)
         }
-    },[navigate])
-    return (
-        <Route
-        {...props}
-        element={props.element}/>
-    )
+    },[history])
+    return <Route {...props} render={() => children} />
 }
 
 export default Protected

@@ -1,29 +1,41 @@
-import './App.css';
+import './App.css'
 import {
-  BrowserRouter,
-  Routes,
-  Route
+  BrowserRouter as Router,
+  Switch,
+  Route,
 } from "react-router-dom";
-
-import Login from './Screens/Auth/Login';
-import Home from './Screens/Home/Home';
-
-import Protected from './Components/Protected';
 import { useEffect } from 'react';
+
+import { AppContext } from './AppContext';
+import { routes } from './Routes';
+import Protected from './Components/Protected';
+import Header from './Components/Header';
+
 
 function App() {
 
-  useEffect(()=>{
-    // localStorage.setItem("User",1234)
-  },[])
+  useEffect(() => {
+    localStorage.setItem("User",1234)
+  }, [])
 
   return (
-  <BrowserRouter>
-    <Routes>
-      {/* <Protected exact path="/" element={<Home />} /> */}
-      <Route path="/login" element={<Login/>} />
-    </Routes>
-  </BrowserRouter>
+    <div className='App'>
+      <Router>
+        <AppContext.Provider value={{user:'1244'}}>
+          <Header />
+          <Switch>
+            {routes.map((item, index) => item.type==="normal"?
+              <Route key={index} exact={item.exact} path={item.path}>
+                {item.component}
+              </Route>:
+              <Protected key={index} exact={item.exact} path={item.path}>
+                {item.component}
+              </Protected>
+            )}
+          </Switch>
+        </AppContext.Provider>
+      </Router>
+    </div>
   );
 }
 
