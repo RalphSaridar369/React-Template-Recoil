@@ -8,6 +8,7 @@ const Login = () => {
     return (
         <Container center column height="100vh">
             <Image 
+            preview={false}
             src='./user-default.png'/>
             <TextInput placeholder="Username" prefix={<UserOutlined />} />
             <PassInput
