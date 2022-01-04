@@ -2,18 +2,19 @@ import React from 'react';
 import { Input } from 'antd';
 import './TextInput.css';
 
+const styles = {
+    maxWidth:'400px',
+    margin:'10px 0',
+}
+
 export const TextInput = (props) => {
     return (
-        <Input className='textInput' placeholder={props.placeholder} prefix={props.prefix ? props.prefix : null} />
+        <Input className='textInput' style={styles} {...props}/>
     )
 }
 
 export const PassInput = (props) => {
     return (
-        <Input.Password className='textInput' placeholder={props.placeholder} prefix={props.prefix ? props.prefix : null} iconRender={props.iconRender} />
+        <Input.Password className='textInput' style={styles} {...props}/>
     )
-}
-
-const styles = {
-    width:300
 }
