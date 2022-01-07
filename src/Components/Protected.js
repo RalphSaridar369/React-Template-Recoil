@@ -1,13 +1,13 @@
-import React,{useEffect} from 'react'
+import React,{useContext, useEffect} from 'react'
 import { useHistory,Route } from 'react-router-dom';
+import { AppContext } from '../AppContext';
 
 const Protected = ({children,...props}) => {
     const history = useHistory();
+    const {userData} = useContext(AppContext)
     useEffect(()=>{
-        if(!JSON.parse(localStorage.getItem("User"))){
+        if(userData.username.length<1)
             history.push('/login');
-            alert(1234)
-        }
     },[history])
     return <Route {...props} render={() => children} />
 }
