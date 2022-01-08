@@ -12,7 +12,7 @@ const Protected = ({children,...props}) => {
     const [ userStateToken, setUserStateToken ] = useRecoilState(usertoken)
 
     useEffect(()=>{
-        if(!checkLogged(userStateToken))
+        if(!checkLogged(sessionStorage.getItem(process.env.REACT_APP_SECRET_TOKEN_KEY),userStateToken))
              history.push('/login');
         // if(localtoken === null || localtoken === "")
         //     history.push('/login');

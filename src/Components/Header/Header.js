@@ -7,6 +7,7 @@ import { checkLogged } from '../../helpers/checkLogged';
 import { useRecoilState } from 'recoil';
 import { usertoken } from '../../shared/globalState';
 import { ClearAll } from '../../helpers/clearAll';
+import { AlertBox } from '../Alert/Alert';
 
 
 const Header = () => {
@@ -65,6 +66,7 @@ const Header = () => {
     ]
 
     return (
+        <>
         <div style={styles.header}>
             <Link to="/">
                 <img src='./logo.png' style={{ height: '80px', width: '80px' }} alt="Logo Image" />
@@ -96,6 +98,7 @@ const Header = () => {
                 </div>
             </Drawer>
         </div>
+        </>
     )
 
 

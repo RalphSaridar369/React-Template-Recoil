@@ -10,10 +10,15 @@ export const usertoken = atom({
     key:'token',
     default:'',
     effects_UNSTABLE: [persistAtom],
-})
+});
 
 export const userdata = atom({
     key:'userdata',
     default:{},
     effects_UNSTABLE: [persistAtom],
-})
+});
+
+export const alert = atom({
+    key:'alert',
+    default:{},
+});

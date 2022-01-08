@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import { AlertBox } from '../Components/Alert/Alert';
 
 const forms = {
 
@@ -26,8 +27,8 @@ export const formValidator = async(payload,type,callback) =>{
     })
     let error = (validationResult+"").split(": ")[1]
     if(error){
-        alert(error);
-        return;
+        // alert(error);
+        return {text:error, type:'error'};
     }
     callback()
 }

@@ -1,11 +1,13 @@
 import { decrypt } from "./cryptoJs"
-const localtoken = sessionStorage.getItem(process.env.REACT_APP_SECRET_TOKEN_KEY)
 
-export const checkLogged = (userStateToken) => {
-    // console.log(decrypt(localtoken)+"\n"+decrypt(userStateToken,process.env.REACT_APP_SECRET_CRYPTO_JS2))
-    if (localtoken === null || localtoken === "")
+export const checkLogged = (localtoken,userStateToken) => {
+    if (localtoken === null || localtoken === ""){
+        console.log("if")
         return false
-    else if (decrypt(localtoken) !== decrypt(userStateToken,process.env.REACT_APP_SECRET_CRYPTO_JS2))
+    }
+    else if (decrypt(localtoken) !== decrypt(userStateToken,process.env.REACT_APP_SECRET_CRYPTO_JS2)){
+        console.log("else if")
         return false
+    }
     else return true
 }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
-import { encrypt } from '../../helpers/cryptoJs'
 import { usertoken, userdata } from '../../shared/globalState'
+import { Alert } from 'antd'
 
 const Home = () => {
     // const {user} = useContext(AppContext) 
