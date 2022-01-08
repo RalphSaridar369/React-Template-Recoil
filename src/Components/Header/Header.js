@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import React, { useEffect, useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { Drawer } from 'antd';
 import { MenuOutlined, HomeOutlined, InfoCircleOutlined, LoginOutlined, LogoutOutlined, DropboxOutlined } from '@ant-design/icons'
 import { styles } from './HeaderStyle';
@@ -10,11 +10,20 @@ import { ClearAll } from '../../helpers/clearAll';
 
 
 const Header = () => {
-
+    
     const [open, setOpen] = useState(false);
     const [logged, setLogged] = useState(false);
     const [userStateToken, setUserStateToken] = useRecoilState(usertoken)
-    const history = useHistory();
+    const userTokenRef = useRef(userStateToken);
+    
+    useEffect(() => {
+        console.log("Header: ",userStateToken)
+        userTokenRef.current = userStateToken;
+        if(userTokenRef.current.length>0)
+            setLogged(true)
+        else
+            setLogged(false)
+    }, [userStateToken])
 
 
     const links = [
@@ -24,27 +33,29 @@ const Header = () => {
             icon: <HomeOutlined style={styles.drawerItemIcon} />,
             type: 'normal'
         },
-
+    
         {
             name: 'Products',
             path: '/products',
             icon: <DropboxOutlined style={styles.drawerItemIcon} />,
             type: 'logged'
         },
-
+    
         {
             name: 'About',
             path: "/about",
             icon: <InfoCircleOutlined style={styles.drawerItemIcon} />,
             type: 'normal'
         },
-
+    
         {
             name: logged ? 'Logout' : 'Login',
             path: logged ? '/' : '/login',
             onclick: () =>{
                 if(logged){
-                    ClearAll()
+                    ClearAll();
+                    setUserStateToken('');
+                    setLogged(false);
                 }
                 setOpen(false)
             },
@@ -53,17 +64,6 @@ const Header = () => {
         },
     ]
 
-    useEffect(() => {
-        console.log("Running: ", userStateToken)
-        if (!checkLogged(userStateToken)) {
-            setLogged(false)
-            console.log("FLSE")
-        }
-        else {
-            setLogged(true)
-            console.log("TRUE")
-        }
-    }, [usertoken, setOpen, open])
     return (
         <div style={styles.header}>
             <Link to="/">

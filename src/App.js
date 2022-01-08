@@ -4,13 +4,13 @@ import {
 	Switch,
 	Route,
 } from "react-router-dom";
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { routes } from './Routes';
 import Protected from './Components/Protected';
 import Header from './Components/Header/Header';
 import { RecoilRoot } from 'recoil';
-
+import { usertoken, userdata } from './shared/globalState';
 
 const screensWithoutHeader = [
 	"/login",
@@ -18,7 +18,9 @@ const screensWithoutHeader = [
 ]
 
 function App() {
-
+	useEffect(()=>{
+		// alert(13)
+	},[usertoken,userdata])
 	return (
 		<RecoilRoot>
 			<div className='App'>

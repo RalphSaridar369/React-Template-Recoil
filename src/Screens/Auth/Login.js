@@ -11,7 +11,7 @@ import { formValidator } from '../../helpers/formValidator';
 import { encrypt } from '../../helpers/cryptoJs';
 
 const Login = () => {
-    const [userToken, setUserToken] = useRecoilState(usertoken)
+    const [userToken, setUserStateToken] = useRecoilState(usertoken)
     const [userData, setUserData] = useRecoilState(userdata)
     const [userCred, setUserCred] = useState({ username: '', password: '' })
     const valueChange = (t, e) => {
@@ -39,7 +39,7 @@ const Login = () => {
             />
             <Button text="Login" onClick={() => formValidator(userCred, "login", () => {
                 sessionStorage.setItem(process.env.REACT_APP_SECRET_TOKEN_KEY,encrypt("qwerty123"));
-                setUserToken(encrypt("qwerty123",process.env.REACT_APP_SECRET_CRYPTO_JS2))
+                setUserStateToken(encrypt("qwerty123",process.env.REACT_APP_SECRET_CRYPTO_JS2))
                 setUserData({name:"ralph",age:23,job:'software developer'})
                 history.push('/');
             })
