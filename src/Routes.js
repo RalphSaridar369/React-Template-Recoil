@@ -8,7 +8,7 @@ export const routes = [
         exact:true,
         path:'/',
         component:<Home />,
-        type:'protected',
+        type:'normal',
     },
     {
         exact:true,
