@@ -2,6 +2,7 @@ import Home from "./Screens/Home/Home"
 import Login from "./Screens/Auth/Login"
 import About from "./Screens/About/About"
 import Products from "./Screens/Products/Products"
+import Register from "./Screens/Auth/Register"
 
 export const routes = [
     {
@@ -20,6 +21,12 @@ export const routes = [
         exact:false,
         path:'/login',
         component:<Login />,
+        type:'normal'
+    },
+    {
+        exact:false,
+        path:'/register',
+        component:<Register />,
         type:'normal'
     },
     {

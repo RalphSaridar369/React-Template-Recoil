@@ -5,16 +5,15 @@ import Image from '../../Components/Image/Image';
 import Container from '../../Components/Container/Container';
 import Button from '../../Components/Button';
 import { useRecoilState } from 'recoil';
-import { usertoken, userdata, alert } from '../../shared/globalState';
+import {  alert } from '../../shared/globalState';
 import { Link, useHistory } from 'react-router-dom';
 import { formValidator } from '../../helpers/formValidator';
-import { encrypt } from '../../helpers/cryptoJs';
+import { DatePicker } from 'antd';
+import moment from 'moment'
 
-const Login = () => {
-    const [userToken, setUserStateToken] = useRecoilState(usertoken);
-    const [userData, setUserData] = useRecoilState(userdata);
+const Register = () => {
     const [alertData, setAlertData] = useRecoilState(alert)
-    const [userCred, setUserCred] = useState({ username: '', password: '' });
+    const [userCred, setUserCred] = useState({ username: '', password: '', confirmpassword:'' });
     const valueChange = (t, e) => {
         setUserCred({ ...userCred, [t]: e })
     }
@@ -32,6 +31,7 @@ const Login = () => {
                     value={userCred.username}
                     onChange={(e) => valueChange("username", e.target.value)}
                 />
+                <DatePicker defaultValue={moment('2015/01/01', 'YYYY/MM/DD')} format={'YYYY/MM/DD'} />
                 <PassInput
                     placeholder="Password"
                     iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
@@ -39,22 +39,26 @@ const Login = () => {
                     value={userCred.password}
                     onChange={(e) => valueChange("password", e.target.value)}
                 />
-                <Button text="Login" onClick={async() => {
+                <PassInput
+                    placeholder="Confirm Password"
+                    iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                    prefix={<LockOutlined />}
+                    value={userCred.confirmpassword}
+                    onChange={(e) => valueChange("confirmpassword", e.target.value)}
+                />
+                <Button text="Register" onClick={async() => {
                     let res = await formValidator(userCred, "login", () => {
-                        sessionStorage.setItem(process.env.REACT_APP_SECRET_TOKEN_KEY, encrypt("qwerty123"));
-                        setUserStateToken(encrypt("qwerty123", process.env.REACT_APP_SECRET_CRYPTO_JS2))
-                        setUserData({ name: "ralph", age: 23, job: 'software developer' })
-                        history.push('/');
+                        setAlertData({text:'user created successfully', type:'success'})
                     })
                     if(typeof(res)=="object"){
                         setAlertData(res)
                     }
                 }
                 } type="primary" />
-                <p style={{marginTop:'1rem'}}><Link to="/register">Don't have an account? register here</Link></p>
+                <p style={{marginTop:'1rem'}}><Link to="/login">Already have an account? login here</Link></p>
             </Container>
         </>
     )
 }
 
-export default Login
+export default Register
