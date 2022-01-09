@@ -21,9 +21,13 @@ const screensWithoutHeader = [
 function App() {
 	const [alertData, setAlertData] = useRecoilState(alert);
 	const alertDataRef = useRef(alertData);
+	useEffect(()=>{
+		console.log(1234)
+		setTimeout(()=>setAlertData({}),5000)
+	},[Object.keys(alertData).length !== 0])
 	return (
 			<div className='App'>
-				{Object.keys(alertData).length !== 0 && <AlertBox {...alertData} closable onClose={()=>setAlertData({})}/>}
+				{Object.keys(alertData).length !== 0 && <AlertBox {...alertData}/>}
 				<Router>
 					<Switch>
 						{routes.map((item, index) => item.type === "normal" ?

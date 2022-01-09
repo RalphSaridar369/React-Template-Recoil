@@ -1,10 +1,10 @@
 import React from 'react';
-import { Alert } from 'antd';
+import Alert from '@mui/material/Alert';
 
 export const AlertBox = ({text,type,...props}) =>{
     return(
         <>
-        <Alert message={text} type={type} {...props}/>
+        <Alert severity={type} {...props}>{text}</Alert>
         </>
     );
 }

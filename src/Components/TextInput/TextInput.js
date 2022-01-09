@@ -1,20 +1,22 @@
 import React from 'react';
 import { Input } from 'antd';
+import { TextField } from '@mui/material' 
 import './TextInput.css';
 
 const styles = {
-    maxWidth:'400px',
+    maxWidth:'80%',
+    minWidth:'20%',
     margin:'10px 0',
 }
 
 export const TextInput = (props) => {
     return (
-        <Input className='textInput' style={styles} {...props}/>
-    )
+        <TextField style={styles} size="small" {...props}/>
+        )
 }
 
 export const PassInput = (props) => {
     return (
-        <Input.Password className='textInput' style={styles} {...props}/>
+        <TextField style={styles} size="small" {...props}/>
     )
 }
