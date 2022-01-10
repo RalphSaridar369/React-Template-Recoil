@@ -1,8 +1,8 @@
-import { Button } from 'antd';
+import Button from '@mui/material/Button';
 
 const ButtonV = ({ text, onClick, ...props }) => {
     return (
-        <Button onClick={onClick} {...props}>
+        <Button onClick={onClick} variant="contained" {...props}>
             {text}
         </Button>
     )

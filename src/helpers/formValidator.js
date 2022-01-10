@@ -15,6 +15,7 @@ const forms = {
         }),
         password: yup.string().required(),
         email: yup.string().required().email(),
+        dateOfBirth: yup.string().required()
     }),
 
 }

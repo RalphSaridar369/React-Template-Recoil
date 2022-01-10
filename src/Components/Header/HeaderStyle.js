@@ -25,10 +25,13 @@ export const styles = {
     },
     drawerItemIcon:{
         color:'black',
-        fontSize:'24px'
+        fontSize:'24px',
     },
     drawerItemText:{
         display:'inline',
         marginLeft:'24px',
+        alignItems:'center',
+        justifyContent:'center',
+        margin:'auto 20px',
     }
 }

@@ -1,0 +1,10 @@
+.card__container{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card__container__img{
+    object-fit:scale-down;
+    height: auto;
+    width: auto;
+}

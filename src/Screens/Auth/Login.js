@@ -3,13 +3,14 @@ import { UserOutlined, EyeInvisibleOutlined, EyeTwoTone, LockOutlined } from '@a
 import { TextInput, PassInput } from '../../Components/TextInput/TextInput';
 import Image from '../../Components/Image/Image';
 import Container from '../../Components/Container/Container';
+import BackgroundImage from '../../Components/BackgroundImage';
 import Button from '../../Components/Button';
 import { useRecoilState } from 'recoil';
 import { usertoken, userdata, alert } from '../../shared/globalState';
 import { Link, useHistory } from 'react-router-dom';
 import { formValidator } from '../../helpers/formValidator';
 import { encrypt } from '../../helpers/cryptoJs';
-import { Box } from '@mui/material';
+import './Auth.scss';
 
 const Login = () => {
     const [userToken, setUserStateToken] = useRecoilState(usertoken);
@@ -22,46 +23,37 @@ const Login = () => {
     const history = useHistory()
     return (
         <>
-            {/* <Container center column hidden margin="100px 30px"> */}
-
-            <Box
-                component="form"
-                style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}
-                sx={{
-                    '& .MuiTextField-root': { m: 1, width: '25ch' },
-                }}
-                noValidate
-                autoComplete="off"
-            >
-                <Image
-                    preview={false}
-                    alt="Avatar logo"
-                    src='./user-default.png' />
-                <TextInput
-                    label="Username"
-                    value={userCred.username}
-                    onChange={(e) => valueChange("username", e.target.value)}
-                />
-                <PassInput
-                    label="Password"
-                    value={userCred.password}
-                    onChange={(e) => valueChange("password", e.target.value)}
-                />
-                <Button text="Login" onClick={async () => {
-                    let res = await formValidator(userCred, "login", () => {
-                        sessionStorage.setItem(process.env.REACT_APP_SECRET_TOKEN_KEY, encrypt("qwerty123"));
-                        setUserStateToken(encrypt("qwerty123", process.env.REACT_APP_SECRET_CRYPTO_JS2))
-                        setUserData({ name: "ralph", age: 23, job: 'software developer' })
-                        history.push('/');
-                    })
-                    if (typeof (res) == "object") {
-                        setAlertData(res)
+            <BackgroundImage className='auth__container' bg='./bg.jpg'>
+                <div className='login__container'>
+                    <Image
+                        preview={false}
+                        alt="Avatar logo"
+                        src='./user-default.png' />
+                    <TextInput
+                        label="Username"
+                        value={userCred.username}
+                        onChange={(e) => valueChange("username", e.target.value)}
+                    />
+                    <PassInput
+                        label="Password"
+                        value={userCred.password}
+                        onChange={(e) => valueChange("password", e.target.value)}
+                    />
+                    <Button text="Login" onClick={async () => {
+                        let res = await formValidator(userCred, "login", () => {
+                            sessionStorage.setItem(process.env.REACT_APP_SECRET_TOKEN_KEY, encrypt("qwerty123"));
+                            setUserStateToken(encrypt("qwerty123", process.env.REACT_APP_SECRET_CRYPTO_JS2))
+                            setUserData({ name: "ralph", age: 23, job: 'software developer' })
+                            history.push('/');
+                        })
+                        if (typeof (res) == "object") {
+                            setAlertData(res)
+                        }
                     }
-                }
-                } type="primary" />
-                <p style={{ marginTop: '1rem' }}><Link to="/register">Don't have an account? register here</Link></p>
-            </Box>
-            {/* </Container> */}
+                    } type="primary" />
+                    <p className='login__container__link'><Link to="/register">Don't have an account? register here</Link></p>
+                </div>
+            </BackgroundImage>
         </>
     )
 }

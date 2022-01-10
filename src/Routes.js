@@ -3,6 +3,7 @@ import Login from "./Screens/Auth/Login"
 import About from "./Screens/About/About"
 import Products from "./Screens/Products/Products"
 import Register from "./Screens/Auth/Register"
+import HomeDetailed from "./Screens/Home/HomeDetailed"
 
 export const routes = [
     {
@@ -10,6 +11,12 @@ export const routes = [
         path:'/',
         component:<Home />,
         type:'normal',
+    },
+    {
+        exact:false,
+        path:'/:id',
+        component:<HomeDetailed />,
+        type:'protected',
     },
     {
         exact:true,
@@ -24,13 +31,13 @@ export const routes = [
         type:'normal'
     },
     {
-        exact:false,
+        exact:true,
         path:'/register',
         component:<Register />,
         type:'normal'
     },
     {
-        exact:false,
+        exact:true,
         path:'/about',
         component:<About />,
         type:'normal'

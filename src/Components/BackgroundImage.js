@@ -1,33 +1,30 @@
 import React from 'react';
 
-const Container = ({ children,className, ...props }) => {
+const BG = ({ children,className, ...props }) => {
 
     const styles = {
         display: 'flex',
         flexDirection: props.row ? 'row' : 'column',
-        ...props.margin ? { margin: props.margin } : { margin: '40px 30px' },
+        ...props.margin && { margin: props.margin },
+        ...props.padding && { padding: props.padding },
         ...props.center && { alignItems: 'center', justifyContent: 'center' },
         ...props.centerV && { alignItems: 'center' },
         ...props.centerH && { justifyContent: 'center' },
         ...props.space && { justifyContent: 'space-between' },
-        ...props.maxWidth && { maxWidth:props.maxWidth },
-        ...props.minWidth && { minWidth:props.minWidth },
-        ...props.width && { width:props.width },
         height: props.height ? props.height : '100vh',
+        width: props.width ? props.width : '100vw',
         ...props.color && { backgroundColor: props.color },
-        ...props.radius && {borderRadius:props.radius},
         ...props.bg && {
             backgroundImage: `url(${props.bg})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
         }
     }
-
     return (
-        <div style={styles} className='container'>
+        <div className={className} style={styles}>
             {children}
         </div>
     )
 }
 
-export default Container
+export default BG

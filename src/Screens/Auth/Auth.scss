@@ -1,0 +1,36 @@
+@use '../../Utilities/variables'; 
+
+.auth__container{ 
+    overflow-x: hidden;
+    @include variables.center;
+    @include variables.padding;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: variables.$fullheight;
+    flex-direction:column;
+    
+    @media screen and (max-width: variables.$small) {
+      padding:0
+   }
+}
+
+.login__container__link{
+    margin-top: 1rem;
+}
+
+.login__container{
+    @include variables.center;
+    flex-direction:column;
+    background-color: variables.$white;
+    border-radius: 20px;
+    padding:20px 10%;
+    
+  @media screen and (max-width: variables.$small) {
+    width: variables.$fullwidth;    
+    height: variables.$fullheight;    
+    border-radius: 0;
+  }
+}
+
+

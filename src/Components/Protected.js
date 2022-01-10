@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 import { checkLogged } from '../helpers/checkLogged';
 import { decrypt } from '../helpers/cryptoJs';
 import { usertoken } from '../shared/globalState';
+import { Redirect } from 'react-router-dom';
 
 const Protected = ({children,...props}) => {
     const history = useHistory();
@@ -21,7 +22,10 @@ const Protected = ({children,...props}) => {
         else
             setUserToken(localtoken)
     },[localtoken, history, userStateToken])
-    return userToken.length>0?<Route {...props} render={() => children} />:null
+    if(userToken.length>0)
+        return <Route {...props} render={() => children} />
+    else
+        return <Redirect to="login" />
 }
 
 export default Protected
