@@ -15,6 +15,7 @@ export const styles = {
         flexDirection:'column',
         display:'flex',
         justifyContent:'center',
+        margin:'4rem 4rem 4rem 2rem',
     },
     drawerItemContainer:{
         display:'flex',

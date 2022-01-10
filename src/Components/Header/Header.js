@@ -1,13 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import { Drawer } from 'antd';
-import { MenuOutlined, HomeOutlined, InfoCircleOutlined, LoginOutlined, LogoutOutlined, DropboxOutlined } from '@ant-design/icons'
+import React, { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { Drawer } from '@mui/material';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined';
 import { styles } from './HeaderStyle';
-import { checkLogged } from '../../helpers/checkLogged';
 import { useRecoilState } from 'recoil';
 import { usertoken } from '../../shared/globalState';
 import { ClearAll } from '../../helpers/clearAll';
-import { AlertBox } from '../Alert/Alert';
 
 
 const Header = () => {
@@ -31,21 +34,21 @@ const Header = () => {
         {
             name: 'Home',
             path: "/",
-            icon: <HomeOutlined style={styles.drawerItemIcon} />,
+            icon: <HomeOutlinedIcon fontSize="large" sx={{color:'black'}} />,
             type: 'normal'
         },
     
         {
             name: 'Products',
             path: '/products',
-            icon: <DropboxOutlined style={styles.drawerItemIcon} />,
+            icon: <CheckBoxOutlineBlankOutlinedIcon fontSize="large" sx={{color:'black'}} />,
             type: 'logged'
         },
     
         {
             name: 'About',
             path: "/about",
-            icon: <InfoCircleOutlined style={styles.drawerItemIcon} />,
+            icon: <InfoOutlinedIcon fontSize="large" sx={{color:'black'}} />,
             type: 'normal'
         },
     
@@ -60,7 +63,7 @@ const Header = () => {
                 }
                 setOpen(false)
             },
-            icon: logged ? <LogoutOutlined style={styles.drawerItemIcon} /> : <LoginOutlined style={styles.drawerItemIcon} />,
+            icon: logged ? <LogoutOutlinedIcon fontSize="large" sx={{color:'black'}} /> : <LoginOutlinedIcon fontSize="large" sx={{color:'black'}} />,
             type: 'normal'
         },
     ]
@@ -72,15 +75,12 @@ const Header = () => {
                 <img src='./logo.png' style={{ height: '80px', width: '80px' }} alt="Logo Image" />
             </Link>
             <a onClick={() => setOpen(!open)}>
-                <MenuOutlined style={styles.burgerIcon} />
+                <MenuOutlinedIcon  fontSize="large" />
             </a>
             <Drawer
-                title="Basic Drawer"
-                placement="right"
-                closable={true}
+                anchor="right"
                 onClose={() => setOpen(false)}
-                visible={open}
-                key="right"
+                open={open}
             >
                 <div style={styles.drawerContainer}>
                     {links.map((item, index) => item.type == "logged" ?
