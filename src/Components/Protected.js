@@ -25,7 +25,7 @@ const Protected = ({children,...props}) => {
     if(userToken.length>0)
         return <Route {...props} render={() => children} />
     else
-        return <Redirect to="login" />
+        return <div>tets</div>
 }
 
 export default Protected

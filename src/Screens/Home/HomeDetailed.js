@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useLocation } from "react-router-dom";
 
 const HomeDetailed = () =>{
+    const location = useLocation();
+    useEffect(() => {
+        console.log("STATE: ",location)
+    }, [])
     return(
-        <div>Detaield</div>
+        <div>{location.state.name}</div>
     )
 }
 

@@ -14,9 +14,9 @@ export const routes = [
     },
     {
         exact:false,
-        path:'/:id',
+        path:'/products/:id',
         component:<HomeDetailed />,
-        type:'protected',
+        type:'normal',
     },
     {
         exact:true,
