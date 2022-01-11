@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { UserOutlined, EyeInvisibleOutlined, EyeTwoTone, LockOutlined } from '@ant-design/icons';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { TextInput, PassInput } from '../../Components/TextInput/TextInput';
 import Image from '../../Components/Image/Image';
-import Container from '../../Components/Container/Container';
 import BackgroundImage from '../../Components/BackgroundImage';
 import Button from '../../Components/Button';
 import { useRecoilState } from 'recoil';
@@ -33,6 +32,7 @@ const Login = () => {
                         label="Username"
                         value={userCred.username}
                         onChange={(e) => valueChange("username", e.target.value)}
+                        startIcon={<PersonOutlineIcon />}
                     />
                     <PassInput
                         label="Password"

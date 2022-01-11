@@ -1,0 +1,9 @@
+@use '../Utilities/variables'; 
+
+.button{
+    @include variables.button;
+}
+
+.input{
+    @include variables.input;
+}

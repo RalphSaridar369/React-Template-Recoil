@@ -1,8 +1,13 @@
 import Button from '@mui/material/Button';
+import './Components.scss';
 
-const ButtonV = ({ text, onClick, ...props }) => {
+const ButtonV = ({ text, onClick, startIcon, endIcon, ...props }) => {
     return (
-        <Button onClick={onClick} variant="contained" {...props}>
+        <Button onClick={onClick}
+            startIcon={startIcon}
+            endIcon={endIcon} 
+            variant="contained"
+            className='button' {...props}>
             {text}
         </Button>
     )

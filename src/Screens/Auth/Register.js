@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { TextInput, PassInput } from '../../Components/TextInput/TextInput';
 import Image from '../../Components/Image/Image';
-import Container from '../../Components/Container/Container';
 import BackgroundImage from '../../Components/BackgroundImage';
 import Button from '../../Components/Button';
 import { useRecoilState } from 'recoil';
@@ -12,6 +11,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
 import './Auth.scss';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 
 const Register = () => {
     const [alertData, setAlertData] = useRecoilState(alert)
@@ -32,6 +32,7 @@ const Register = () => {
                     label="Username"
                     value={userCred.username}
                     onChange={(e) => valueChange("username", e.target.value)}
+                    startIcon={<PersonOutlineIcon />}
                 />
                 <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <DatePicker

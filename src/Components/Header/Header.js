@@ -72,7 +72,7 @@ const Header = () => {
         <>
         <div style={styles.header}>
             <Link to="/">
-                <img src='./logo.png' style={{ height: '80px', width: '80px' }} alt="Logo Image" />
+                <img src={require('./logo.png')} style={{ height: '80px', width: '80px' }} alt="Logo Image" />
             </Link>
             <a onClick={() => setOpen(!open)}>
                 <MenuOutlinedIcon  fontSize="large" />

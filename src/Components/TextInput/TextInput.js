@@ -1,21 +1,31 @@
-import React from 'react';
-import { Input } from 'antd';
-import { TextField } from '@mui/material' 
+import React, {useState} from 'react';
+import { TextField,IconButton,InputAdornment,OutlinedInput } from '@mui/material'; 
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import '../Components.scss';
 
 const styles = {
-    maxWidth:'80%',
-    minWidth:'20%',
     margin:'10px 0',
 }
 
-export const TextInput = (props) => {
+export const TextInput = ({startIcon,endIcon,...props}) => {
     return (
-        <TextField style={styles} size="small" {...props}/>
+        <TextField style={styles} className="input" size="small" 
+        InputProps={(startIcon || endIcon) && {
+          startAdornment: <InputAdornment position="start">{startIcon}</InputAdornment>,
+          endAdornment: <InputAdornment position="end">{endIcon}</InputAdornment>,
+        }}{...props}/>
         )
 }
 
-export const PassInput = (props) => {
+export const PassInput = ({startIcon,endIcon,...props}) => {
+        const [show,setShow] = useState(false)
     return (
-        <TextField style={styles} size="small" {...props}/>
-    )
+        <TextField style={styles} className="input" size="small" 
+        type={show?'text':'password'}
+        InputProps={{
+          startAdornment: startIcon ?<InputAdornment position="start">{startIcon}</InputAdornment>:null,
+          endAdornment: <InputAdornment position="end"><IconButton onClick={()=>setShow(!show)}>{show?<VisibilityOff />:<Visibility />}</IconButton></InputAdornment>,
+        }}{...props}/>
+        )
 }

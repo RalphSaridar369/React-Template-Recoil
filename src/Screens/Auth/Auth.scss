@@ -10,7 +10,7 @@
     height: variables.$fullheight;
     flex-direction:column;
     
-    @media screen and (max-width: variables.$small) {
+    @media screen and (max-width: variables.$xs) {
       padding:0
    }
 }
@@ -26,7 +26,7 @@
     border-radius: 20px;
     padding:20px 10%;
     
-  @media screen and (max-width: variables.$small) {
+  @media screen and (max-width: variables.$xs) {
     width: variables.$fullwidth;    
     height: variables.$fullheight;    
     border-radius: 0;

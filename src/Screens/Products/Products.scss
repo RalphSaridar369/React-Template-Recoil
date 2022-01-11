@@ -1,0 +1,7 @@
+@use '../../Utilities/variables'; 
+
+.products__container{
+    @include variables.padding;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,10 +1,10 @@
-import './App.css'
+import './App.scss'
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
 } from "react-router-dom";
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { routes } from './Routes';
 import Protected from './Components/Protected';

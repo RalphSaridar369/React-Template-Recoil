@@ -14,7 +14,7 @@ export const routes = [
     },
     {
         exact:false,
-        path:'/products/:id',
+        path:'/book-details/:id',
         component:<HomeDetailed />,
         type:'normal',
     },

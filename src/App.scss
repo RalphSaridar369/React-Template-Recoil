@@ -1,7 +1,22 @@
+@use './Utilities/variables'; 
+
 * {    
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+
+h1{
+  @include variables.txtlg;
+}
+
+h3{
+  @include variables.txtmd;
+}
+
+p{
+  @include variables.txtsm;
 }
 
 /* width */

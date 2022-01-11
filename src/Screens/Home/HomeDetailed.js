@@ -7,7 +7,10 @@ const HomeDetailed = () =>{
         console.log("STATE: ",location)
     }, [])
     return(
-        <div>{location.state.name}</div>
+            <div className='home__container'>
+                <h1>Here I am getting data from state sent via route</h1>
+                <div>{location.state.name}</div>
+            </div>
     )
 }
 

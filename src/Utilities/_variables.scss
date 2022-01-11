@@ -1,10 +1,69 @@
 $black: #000;
 $white: #fff;
+
 $fullwidth: 100vw;
 $fullheight: 100vh;
-$small: 400px;
-$medium: 900px;
 
+$xs:400px;
+$sm: 600px;
+$md: 800px;
+$lg: 1000px;
+
+$fontFam :'Roboto', sans-serif;
+@mixin txtlg{
+    font-size: 32px;
+    font-family: $fontFam;
+    font-weight: 700;
+    @media (max-width: $sm){
+        font-size:28px;
+    }
+}
+@mixin txtmd{
+    font-size: 26px;
+    font-family: $fontFam;
+    font-weight: 500;
+    @media (max-width: $sm){
+        font-size:22px;
+    }
+}
+@mixin txtsm{
+    font-size: 22px;
+    font-family: $fontFam;
+    font-weight: 300;
+    @media (max-width: $sm){
+        font-size:18px;
+    }
+}
+@mixin txtxs{
+    font-size: 14px;
+    font-family: $fontFam;
+    font-weight: 100;
+    @media (max-width: $sm){
+        font-size:10px;
+    }
+}
+
+
+@mixin button{
+    width: 200px;
+    margin: 10px 0!important;;
+    @media (max-width: $md) {
+        width:150px
+    }
+    @media (max-width: $xs) {
+        width:100px
+    }
+}
+
+@mixin input{
+    width: 400px;
+    @media (max-width: $sm) {
+        width:300px
+    }
+    @media (max-width: $xs) {
+        width:250px
+    }
+}
 
 @mixin center{
     display: flex;
@@ -14,10 +73,10 @@ $medium: 900px;
 
 @mixin padding{
     padding:100px 80px;
-    @media (max-width: #{$small*1.5}) {
+    @media (max-width: $sm) {
         padding:75px 50px;
     }
-    @media (max-width: $small) {
+    @media (max-width: $xs) {
         padding:75px 20px;
     }
 }
