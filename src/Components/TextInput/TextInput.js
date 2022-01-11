@@ -24,7 +24,7 @@ export const PassInput = ({startIcon,endIcon,...props}) => {
         <TextField style={styles} className="input" size="small" 
         type={show?'text':'password'}
         InputProps={{
-          startAdornment: startIcon ?<InputAdornment position="start">{startIcon}</InputAdornment>:null,
+          startAdornment: startIcon && <InputAdornment position="start">{startIcon}</InputAdornment>,
           endAdornment: <InputAdornment position="end"><IconButton onClick={()=>setShow(!show)}>{show?<VisibilityOff />:<Visibility />}</IconButton></InputAdornment>,
         }}{...props}/>
         )

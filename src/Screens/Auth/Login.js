@@ -25,7 +25,6 @@ const Login = () => {
             <BackgroundImage className='auth__container' bg='./bg.jpg'>
                 <div className='login__container'>
                     <Image
-                        preview={false}
                         alt="Avatar logo"
                         src='./user-default.png' />
                     <TextInput
@@ -51,7 +50,7 @@ const Login = () => {
                         }
                     }
                     } type="primary" />
-                    <p className='login__container__link'><Link to="/register">Don't have an account? register here</Link></p>
+                    <p><Link to="/register"  className='login__container__link'>Don't have an account? register here</Link></p>
                 </div>
             </BackgroundImage>
         </>

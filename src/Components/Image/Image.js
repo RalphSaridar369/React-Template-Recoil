@@ -1,5 +1,4 @@
 import React from 'react';
-import { Image } from 'antd';
 
 const ImageComponent =(props)=> {
 
@@ -8,7 +7,7 @@ const ImageComponent =(props)=> {
   }
 
   return (
-      <Image
+      <img
         style={styles}
         width={200}
         {...props}

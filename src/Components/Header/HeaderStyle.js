@@ -21,7 +21,9 @@ export const styles = {
         display:'flex',
         flexDirection:'row',
         alignItems:'center',
-        margin:'10px 0'
+        margin:'10px 0',
+        color:'black',
+        textDecoration:'none',
     },
     drawerItemIcon:{
         color:'black',

@@ -43,6 +43,10 @@ $fontFam :'Roboto', sans-serif;
     }
 }
 
+@mixin link{
+    text-decoration: none;
+    color: blue ;
+}
 
 @mixin button{
     width: 200px;

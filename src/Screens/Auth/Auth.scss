@@ -17,6 +17,7 @@
 
 .login__container__link{
     margin-top: 1rem;
+    @include variables.link;
 }
 
 .login__container{

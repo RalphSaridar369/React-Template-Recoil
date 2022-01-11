@@ -25,7 +25,6 @@ const Register = () => {
         <BackgroundImage className='auth__container' bg='./bg.jpg'>
             <div className='login__container'>
                 <Image
-                    preview={false}
                     alt="Avatar logo"
                     src='./user-default.png' />
                 <TextInput
@@ -66,7 +65,7 @@ const Register = () => {
                     }
                 }
                 } type="primary" />
-                <p className='login__container__link'><Link to="/login">Already have an account? login here</Link></p>
+                <p><Link to="/login" className='login__container__link'>Already have an account? login here</Link></p>
             </div>
             </BackgroundImage>
         </>

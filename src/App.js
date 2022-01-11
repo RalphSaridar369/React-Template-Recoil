@@ -27,7 +27,7 @@ function App() {
 	},[Object.keys(alertData).length !== 0])
 	return (
 			<div className='App'>
-				{Object.keys(alertData).length !== 0 && <AlertBox {...alertData} style={{marginBottom:'1rem'}}/>}
+				{Object.keys(alertData).length !== 0 && <AlertBox {...alertData} style={{ marginBottom: '1rem' }}/>}
 				<Router>
 					<Switch>
 						{routes.map((item, index) => item.type === "normal" ?

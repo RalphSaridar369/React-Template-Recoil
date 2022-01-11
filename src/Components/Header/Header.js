@@ -78,7 +78,7 @@ const Header = () => {
                 <MenuOutlinedIcon  fontSize="large" />
             </a>
             <Drawer
-                anchor="right"
+                anchor={window.innerWidth<500?"top":"right"}
                 onClose={() => setOpen(false)}
                 open={open}
             >
