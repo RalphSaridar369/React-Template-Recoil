@@ -10,7 +10,7 @@ import './Card.scss';
 
 export default function MediaCard({ img, desc, name }) {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card>
             <CardActionArea>
                 <CardMedia
                     component="img"

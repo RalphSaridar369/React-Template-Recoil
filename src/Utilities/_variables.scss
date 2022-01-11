@@ -5,6 +5,7 @@ $fullheight: 100vh;
 $small: 400px;
 $medium: 900px;
 
+
 @mixin center{
     display: flex;
     justify-content: center;
@@ -12,5 +13,11 @@ $medium: 900px;
 }
 
 @mixin padding{
-    padding:100px 30px;
+    padding:100px 80px;
+    @media (max-width: #{$small*1.5}) {
+        padding:75px 50px;
+    }
+    @media (max-width: $small) {
+        padding:75px 20px;
+    }
 }
