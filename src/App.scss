@@ -17,6 +17,10 @@ h3{
   margin:20px 0px;
 }
 
+h4{
+  @include variables.txtsm;
+}
+
 p{
   @include variables.txtsm;
   margin:10px 0px;

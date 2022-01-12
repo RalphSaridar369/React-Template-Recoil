@@ -87,12 +87,12 @@ const Header = () => {
                         logged ?
                             <Link to={item.path} key={index} onClick={() => { item.onclick? item.onclick():setOpen(false) }} style={styles.drawerItemContainer}>
                                 {item.icon}
-                                <h3 style={styles.drawerItemText}>{item.name}</h3>
+                                <h4 style={styles.drawerItemText}>{item.name}</h4>
                             </Link> :
                             null :
                         <Link to={item.path} key={index} onClick={() => { item.onclick? item.onclick():setOpen(false) }} style={styles.drawerItemContainer}>
                             {item.icon}
-                            <h3 style={styles.drawerItemText}>{item.name}</h3>
+                            <h4 style={styles.drawerItemText}>{item.name}</h4>
                         </Link>
                     )}
                 </div>
