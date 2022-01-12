@@ -22,7 +22,6 @@ function App() {
 	const [alertData, setAlertData] = useRecoilState(alert);
 	const alertDataRef = useRef(alertData);
 	useEffect(()=>{
-		console.log(1234)
 		setTimeout(()=>setAlertData({}),5000)
 	},[Object.keys(alertData).length !== 0])
 	return (

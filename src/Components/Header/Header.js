@@ -21,7 +21,6 @@ const Header = () => {
     const userTokenRef = useRef(userStateToken);
     
     useEffect(() => {
-        console.log("Header: ",userStateToken)
         userTokenRef.current = userStateToken;
         if(userTokenRef.current.length>0)
             setLogged(true)
@@ -37,21 +36,78 @@ const Header = () => {
             icon: <HomeOutlinedIcon fontSize="large" sx={{color:'black'}} />,
             type: 'normal'
         },
-    
+        {
+            name: 'Home',
+            path: "/",
+            icon: <HomeOutlinedIcon fontSize="large" sx={{color:'black'}} />,
+            type: 'normal'
+        },
+        {
+            name: 'Home',
+            path: "/",
+            icon: <HomeOutlinedIcon fontSize="large" sx={{color:'black'}} />,
+            type: 'normal'
+        },
+        {
+            name: 'Home',
+            path: "/",
+            icon: <HomeOutlinedIcon fontSize="large" sx={{color:'black'}} />,
+            type: 'normal'
+        },
+        {
+            name: 'Home',
+            path: "/",
+            icon: <HomeOutlinedIcon fontSize="large" sx={{color:'black'}} />,
+            type: 'normal'
+        },
+        {
+            name: 'Home',
+            path: "/",
+            icon: <HomeOutlinedIcon fontSize="large" sx={{color:'black'}} />,
+            type: 'normal'
+        },
+        {
+            name: 'Home',
+            path: "/",
+            icon: <HomeOutlinedIcon fontSize="large" sx={{color:'black'}} />,
+            type: 'normal'
+        },
+        {
+            name: 'Home',
+            path: "/",
+            icon: <HomeOutlinedIcon fontSize="large" sx={{color:'black'}} />,
+            type: 'normal'
+        },
+        {
+            name: 'Home',
+            path: "/",
+            icon: <HomeOutlinedIcon fontSize="large" sx={{color:'black'}} />,
+            type: 'normal'
+        },
+        {
+            name: 'Home',
+            path: "/",
+            icon: <HomeOutlinedIcon fontSize="large" sx={{color:'black'}} />,
+            type: 'normal'
+        },
+        {
+            name: 'Home',
+            path: "/",
+            icon: <HomeOutlinedIcon fontSize="large" sx={{color:'black'}} />,
+            type: 'normal'
+        },
         {
             name: 'Products',
             path: '/products',
             icon: <CheckBoxOutlineBlankOutlinedIcon fontSize="large" sx={{color:'black'}} />,
             type: 'logged'
         },
-    
         {
             name: 'About',
             path: "/about",
             icon: <InfoOutlinedIcon fontSize="large" sx={{color:'black'}} />,
             type: 'normal'
         },
-    
         {
             name: logged ? 'Logout' : 'Login',
             path: logged ? '/' : '/login',
@@ -78,7 +134,8 @@ const Header = () => {
                 <MenuOutlinedIcon  fontSize="large" />
             </a>
             <Drawer
-                anchor={window.innerWidth<500?"top":"right"}
+                anchor="right"
+                className="drawer"
                 onClose={() => setOpen(false)}
                 open={open}
             >
