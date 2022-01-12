@@ -6,10 +6,12 @@ import './Products.scss';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import { validateDoc } from '../../helpers/documentValidator';
+import { ReadFile } from '../../helpers/readFile';
 
 const Products = () => {
     const [alertData, setAlertData] = useRecoilState(alert)
     const [document, setDocument] = useState('');
+    const [image, setImage] = useState('');
     return (
         <div className='products__container'>
             <h3>Page to upload products </h3>
@@ -19,7 +21,7 @@ const Products = () => {
                 onChange={(e) => {
                     let res = validateDoc(e,"pdf");
                     if(!res){
-                        window.alert("error in extension");
+                        window.alert("error in extension or file is larger than 1MB");
                         setDocument();
                     }
                     else
@@ -32,14 +34,18 @@ const Products = () => {
                 onChange={(e) => {
                     let res = validateDoc(e,"img");
                     if(!res){
-                        window.alert("error in extension");
+                        window.alert("error in extension or file is larger than 1MB");
                         setDocument();
                     }
-                    else
+                    else{
+                        let url = ReadFile(e,(im)=>{
+                            setImage(im)
+                        });
                         setDocument(e.target.files[0]);
-                    console.log(e.target.files[0])
+                    }
                 }}/>
-            <p onClick={()=>console.log(document)}>press here</p>
+            {document && <p>Document fetched successfully</p>}
+            {image && <img src={image} alt="Image Alt" />}
         </div>
     )
 }
